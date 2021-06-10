@@ -34,3 +34,4 @@ Promise.all(promises) //devolve tudo, se tiver certo (ou fica no erro)
 Promise.race(promises) //devolve só a primeira que resolver
   .then((valor) => console.log(valor))
   .catch((err) => console.log(err));
+web;
