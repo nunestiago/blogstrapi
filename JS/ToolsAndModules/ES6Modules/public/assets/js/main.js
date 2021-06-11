@@ -1,9 +1,11 @@
-/******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!**********************!*\
+/* eslint-disable no-unused-vars */
+/******/ (() => {
+  // webpackBootstrap
+  var __webpack_exports__ = {};
+  /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-console.log('Teste');
-/******/ })()
-;
+  console.log('Teste');
+  /******/
+})();
 //# sourceMappingURL=main.js.map
