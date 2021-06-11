@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const path = require('path');
 const caminhoArquivo = path.resolve(__dirname, 'teste.json');
 const escrever = require('./modules/escrever');
