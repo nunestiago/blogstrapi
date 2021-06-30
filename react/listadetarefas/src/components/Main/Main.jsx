@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import './Main.css';
+import React, { useState } from "react";
+import "./Main.css";
+
+// Form
+import { FaPlus } from "react-icons/fa";
 
 export default function Main() {
-  const [tarefa, setTarefa] = useState('');
+  const [tarefa, setTarefa] = useState("");
 
   function handleChange(e) {
     e.preventDefault();
@@ -11,14 +14,12 @@ export default function Main() {
 
   return (
     <div className="main">
-      <h1>
-        Lista de tarefas
-        {' '}
-        {tarefa}
-      </h1>
-      <form action="#">
+      <h1>Lista de tarefas {tarefa}</h1>
+      <form action="#" className="form">
         <input onChange={(e) => handleChange(e)} type="text" />
-        <button type="submit">Enviar</button>
+        <button type="submit">
+          <FaPlus />
+        </button>
       </form>
     </div>
   );
