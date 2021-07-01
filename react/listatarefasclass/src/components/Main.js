@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import Form from "./Form";
-import Tarefas from "./Tarefas";
+import React, { Component } from 'react';
+import Form from './Form';
+import Tarefas from './Tarefas';
 
-import "./Main.css";
+import './Main.css';
 
 export default class Main extends Component {
   state = {
-    novaTarefa: "",
+    novaTarefa: '',
     tarefas: [],
     index: -1,
   };
 
   componentDidMount() {
-    const tarefas = JSON.parse(localStorage.getItem("tarefas"));
+    const tarefas = JSON.parse(localStorage.getItem('tarefas'));
 
     if (!tarefas) return;
 
@@ -24,7 +24,7 @@ export default class Main extends Component {
 
     if (tarefas === prevState.tarefas) return;
 
-    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
   }
 
   handleSubmit = (e) => {
@@ -41,7 +41,7 @@ export default class Main extends Component {
     if (index === -1) {
       this.setState({
         tarefas: [...novasTarefas, novaTarefa],
-        novaTarefa: "",
+        novaTarefa: '',
       });
     } else {
       novasTarefas[index] = novaTarefa;
