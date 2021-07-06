@@ -2,15 +2,17 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 
 import MyRoute from './MyRoute';
-import { Home, Login, Cart, Boss, Page404 } from '../pages';
+import { Aluno, Login, Alunos, Fotos, Register, Page404 } from '../pages';
 
 export default function Routes() {
   return (
     <Switch>
-      <MyRoute exact path="/" component={Home} />
-      <MyRoute exact path="/login" component={Login} />
-      <MyRoute exact path="/cart" component={Cart} />
-      <MyRoute exact path="/boss" component={Boss} />
+      <MyRoute exact path="/" component={Alunos} isClosed={false} />
+      <MyRoute exact path="/aluno/:id/edit" component={Aluno} isClosed />
+      <MyRoute exact path="/aluno/" component={Aluno} isClosed />
+      <MyRoute exact path="/fotos/:id" component={Fotos} isClosed />
+      <MyRoute exact path="/login" component={Login} isClosed={false} />
+      <MyRoute exact path="/register" component={Register} isClosed={false} />
       <MyRoute path="*" component={Page404} />
     </Switch>
   );
