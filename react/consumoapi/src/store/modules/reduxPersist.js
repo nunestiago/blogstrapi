@@ -3,7 +3,7 @@ import { persistReducer } from 'redux-persist/';
 
 export default (reducers) => {
   const persistedReducers = persistReducer(
-    { key: 'NOME-DA-APLICACAO', storage, whitelist: ['example'] },
+    { key: 'CONSUMO-API', storage, whitelist: ['auth'] },
     reducers
   );
   return persistedReducers;
