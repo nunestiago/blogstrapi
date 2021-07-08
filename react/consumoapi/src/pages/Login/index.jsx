@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-return */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { get } from 'lodash';
 
 import { isEmail } from 'validator';
@@ -13,6 +13,9 @@ export default function Login(props) {
   const dispatch = useDispatch();
 
   const prevPath = get(props, 'location.state.prevPath', '/');
+
+  const isLoading = useSelector((state) => state.auth.isLoading);
+  console.log(isLoading);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

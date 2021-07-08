@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { get } from 'lodash';
 import { Link } from 'react-router-dom';
 import { FaUserCircle, FaEdit, FaWindowClose } from 'react-icons/fa';
+import Loading from '../../components/Loading';
 
 import { Container } from '../../styles/GlobalStyles';
 import { AlunoContainer, ProfilePicture } from './styled';
@@ -9,10 +10,13 @@ import axios from '../../services/axios';
 
 export default function Alunos() {
   const [alunos, setAlunos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function getData() {
+      setIsLoading(true);
       const { data } = await axios.get('/alunos');
       setAlunos(data);
+      setIsLoading(false);
     }
 
     getData();
@@ -22,7 +26,8 @@ export default function Alunos() {
   }, []);
   return (
     <Container>
-      Alunos{' '}
+      <Loading isLoading={isLoading} />
+      <h1>Alunos</h1>
       <AlunoContainer>
         {alunos.map((aluno) => (
           // TODO corrigir endereço no back que vem sem o http://
