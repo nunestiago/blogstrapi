@@ -17,6 +17,10 @@ export function registerRequest(payload) {
 export function registerFailure(payload) {
   return { type: types.REGISTER_FAILURE, payload };
 }
-export function registerSuccess(payload) {
-  return { type: types.REGISTER_SUCCESS, payload };
+export function registerCreatedSuccess(payload) {
+  return { type: types.REGISTER_CREATED_SUCCESS, payload };
+}
+
+export function registerUpdatedSuccess(payload) {
+  return { type: types.REGISTER_UPDATED_SUCCESS, payload };
 }

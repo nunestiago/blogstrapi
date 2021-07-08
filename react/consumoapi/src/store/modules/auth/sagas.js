@@ -39,7 +39,16 @@ function* registerRequest({ payload }) {
         password: password || undefined,
       });
       toast.success('Dados editados com sucesso');
-      yield put(actions.registerSuccess({ nome, email, password }));
+      yield put(actions.registerUpdatedSuccess({ nome, email, password }));
+    } else {
+      yield call(axios.post, '/users', {
+        nome,
+        email,
+        password,
+      });
+      toast.success('Dados criada com sucesso');
+      yield put(actions.registerCreatedSuccess({ nome, email, password }));
+      history.push('/login');
     }
   } catch (err) {
     const errors = get(err, 'response.data.error', []);
