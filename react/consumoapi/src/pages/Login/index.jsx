@@ -7,6 +7,7 @@ import { isEmail } from 'validator';
 import { toast } from 'react-toastify';
 import { Form } from './styled';
 import { Container } from '../../styles/GlobalStyles';
+import Loading from '../../components/Loading';
 import * as actions from '../../store/modules/auth/actions';
 
 export default function Login(props) {
@@ -15,7 +16,6 @@ export default function Login(props) {
   const prevPath = get(props, 'location.state.prevPath', '/');
 
   const isLoading = useSelector((state) => state.auth.isLoading);
-  console.log(isLoading);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,6 +37,7 @@ export default function Login(props) {
   };
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       Login
       <Form onSubmit={handleSubmit}>
         <input

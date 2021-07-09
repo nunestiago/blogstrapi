@@ -28,7 +28,7 @@ function persistRehydrate({ payload }) {
   if (!token) return;
   axios.defaults.headers.Authorization = `Bearer ${token}`;
 }
-
+// eslint-disable-next-line consistent-return
 function* registerRequest({ payload }) {
   const { idStored, nome, email, password } = payload;
   try {
@@ -46,7 +46,7 @@ function* registerRequest({ payload }) {
         email,
         password,
       });
-      toast.success('Dados criada com sucesso');
+      toast.success('Dados editados com sucesso');
       yield put(actions.registerCreatedSuccess({ nome, email, password }));
       history.push('/login');
     }
@@ -54,7 +54,13 @@ function* registerRequest({ payload }) {
     const errors = get(err, 'response.data.error', []);
     const status = get(err, 'response.status', []);
     if (status === 400) {
-      console.log('TODO auth saga');
+      toast.error('Status 400');
+    }
+
+    if (status === 401) {
+      toast.error('Você precisa fazer o login novamente');
+      yield put(actions.loginFailure());
+      return history.push('/login');
     }
 
     if (errors.length > 0) {

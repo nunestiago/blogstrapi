@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { get } from 'lodash';
+import { isEmail, isInt, isFloat } from 'validator';
+import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { FaUserCircle, FaEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-import { Title } from './styled';
+import axios from '../../services/axios';
 import { Container } from '../../styles/GlobalStyles';
 import { Form, ProfilePicture, Title } from './styled';
 import Loading from '../../components/Loading';
@@ -188,3 +195,8 @@ export default function Aluno({ match, history }) {
     </Container>
   );
 }
+
+Aluno.propTypes = {
+  match: PropTypes.shape({}).isRequired,
+  history: PropTypes.shape([]).isRequired,
+};
