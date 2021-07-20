@@ -5,7 +5,7 @@ import { Container } from './styled';
 export default function Loading({ isLoading }) {
   if (!isLoading) return <></>;
   return (
-    <Container>
+    <Container isLoading={isLoading}>
       <div />
       <span>Carregando...</span>
     </Container>
