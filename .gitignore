@@ -9,13 +9,12 @@ Icon
 .Spotlight-V100
 .Trashes
 ._*
-yarn.lock
+
 package-lock.json
 
 ############################
 # Linux
 ############################
-
 *~
 
 
