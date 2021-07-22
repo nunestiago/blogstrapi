@@ -10,9 +10,14 @@ module.exports = ({ env }) => ({
         database: env("DATABASE_NAME", "blogstrapi"),
         username: env("DATABASE_USERNAME", "postgres"),
         password: env("DATABASE_PASSWORD", "1"),
-        ssl: env.bool("DATABASE_SSL", true),
+        schema: env("DATABASE_SCHEMA", "public"), // Not Required
+        ssl: {
+          rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false), // For self-signed certificates
+        },
       },
-      options: {},
+      options: {
+        ssl: env.bool("DATABASE_SSL", false),
+      },
     },
   },
 });
